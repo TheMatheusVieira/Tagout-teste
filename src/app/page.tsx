@@ -45,33 +45,43 @@ export default function Home() {
 
 <div className="flex flex-row gap-5">
 <div>
-        <Card>
+    <Card>
         <div className="relative">
           <CardHeader>
             <CardTitle>Nome do colaborador</CardTitle>
             <CardDescription>Cargo do colaborador</CardDescription>
-            
+
             <CardDetail/>
-            
+  
           </CardHeader>
           </div>
-          <div className="flex flex-row gap-5">
+      <div className="flex flex-row gap-5">
+
+        <div className="text-irongray">
           <CardContent>
             <p className="mb-4">Hora início</p>
-            <div className="flex flex-row gap-2 text-irongray">
+
+            <div className="flex flex-row gap-2">
             <Clock size={24} />
             <h1>16:00</h1>
             </div>
+
           </CardContent>
+          </div>
+
+          <div className="text-irongray">
           <CardFooter className="flex flex-col">
             <p className="mb-4">Data início</p>
+
             <div className="flex flex-row gap-2">
-            <CalendarDays size={24} />
+            <CalendarDays size={24} className="ml-10" />
             <h1>09 / 12 / 24</h1>
-            </div>
+          </div>
+
           </CardFooter>
           </div>
-        </Card>
+      </div>
+    </Card>
 
         <Card>
           <CardHeader>
@@ -144,21 +154,21 @@ export default function Home() {
 </div>
 </div>
 
-<div className="flex flex-row">
-<div className="flex flex-row gap-20 ml-20 mt-10">
+<div className="flex flex-row justify-center relative">
+<div className="flex-row flex gap-20 ml-20 mt-10 absolute left-0 ">
 
-    <div className="">
+    <div className="text-irongray">
     <House size={45} />
     <span>Home</span>
     </div>
 
-    <div className="">
+    <div className="text-irongray">
       <CircleUser size={45} />
       <span>Perfil</span>
     </div>
 </div>
 
-<div className="flex items-center">
+<div className="mt-10">
 <Pagination>
   <PaginationContent>
     <PaginationItem>

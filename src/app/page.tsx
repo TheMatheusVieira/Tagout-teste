@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { DropdownMenuShortcut } from "@/components/ui/dropdown-menu";
 import { Header } from "@/components/ui/header";
+import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import Sidebar from "@/components/ui/sidebar";
 import { CalendarDays, CircleUser, Clock, House } from "lucide-react";
 
@@ -22,6 +23,8 @@ export default function Home() {
 
         <Sidebar />
 
+<div className="flex flex-row gap-5">
+  <div>
         <h1 className="m-5 text-2xl text-red text font-bold">Manutenção atual: Painel elétrico X</h1>
 
         <div>
@@ -29,7 +32,13 @@ export default function Home() {
         </div>
 
         <Button className="ml-5 mt-5">ACOMPANHAR</Button>
+    </div>
 
+<div className="relative mt-8">
+<div className="bg-red h-35 w-0.5 flex absolute"/>
+</div>
+
+</div>
       
 
         <h1 className="m-5 text-2xl text-red text font-bold">Colaboradores ativos</h1>
@@ -37,11 +46,15 @@ export default function Home() {
 <div className="flex flex-row gap-5">
 <div>
         <Card>
+        <div className="relative">
           <CardHeader>
             <CardTitle>Nome do colaborador</CardTitle>
             <CardDescription>Cargo do colaborador</CardDescription>
+            
             <CardDetail/>
+            
           </CardHeader>
+          </div>
           <div className="flex flex-row gap-5">
           <CardContent>
             <p className="mb-4">Hora início</p>
@@ -131,6 +144,7 @@ export default function Home() {
 </div>
 </div>
 
+<div className="flex flex-row">
 <div className="flex flex-row gap-20 ml-20 mt-10">
 
     <div className="">
@@ -142,6 +156,26 @@ export default function Home() {
       <CircleUser size={45} />
       <span>Perfil</span>
     </div>
+</div>
+
+<div className="flex items-center">
+<Pagination>
+  <PaginationContent>
+    <PaginationItem>
+      <PaginationPrevious href="#" />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#">1</PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationEllipsis />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationNext href="#" />
+    </PaginationItem>
+  </PaginationContent>
+</Pagination>
+</div>
 </div>
 
       </div>

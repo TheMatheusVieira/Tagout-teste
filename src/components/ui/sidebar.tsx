@@ -9,18 +9,18 @@ interface Item {
 }
 
 const menuItems: Item[] = [
-	{ title: "Dashboard", iconName: "square-kanban", href: "/" },
-	{ title: "Page", iconName: "paperclip", href: "/" },
-	{ title: "Time past", iconName: "timer", href: "/" },
-	{ title: "Key", iconName: "key", href: "/" },
+	{ title: "Dashboard", iconName: "chart-no-axes-combined", href: "/" },
+	{ title: "Page", iconName: "file-text", href: "/" },
+	{ title: "Time past", iconName: "history", href: "/" },
+	{ title: "Key", iconName: "key-round", href: "/" },
 ];
 
 const Sidebar = () => (
-	<aside className="fixed right-0 top-0 h-dvh max-w-[240px] bg-[#FFFFFF] shadow-md border-r-2 border-[#AE080B]">
-		<h1 className="border-b border-[#AE080B] p-5 pl-10 text-2xl font-bold text-[#AE080B]">
+	<aside className="justify-center fixed right-0 top-0 h-dvh max-w-[110px] bg-[#FFFFFF] shadow-md border-r-2 border-[#AE080B]">
+		<h1 className="text-center border-b-2 border-[#AE080B] m-5 pb-5 text-2xl font-bold text-[#AE080B]">
 			LOGO
 		</h1>
-		<nav className="p-4 md:p-5">
+		<nav className="p-4 md:p-5 ">
 			<SidebarSection title="TAGOUT" items={menuItems} />
 		</nav>
 	</aside>
@@ -28,7 +28,7 @@ const Sidebar = () => (
 
 const SidebarSection = ({ title, items }: { title: string; items: Item[] }) => (
 	<>
-		<h3 className="mx-5 mb-3 mt-10 text-xs text-[#AE080B]">{title}</h3>
+		<h3 className="text-center mb-3 text-xs text-[#AE080B]">{title}</h3>
 		{items.map((item, idx) => (
 			<SidebarItem
                 // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
@@ -39,7 +39,6 @@ const SidebarSection = ({ title, items }: { title: string; items: Item[] }) => (
 	</>
 );
 
-const fallback = <div style={{ background: "#ddd", width: 18, height: 18 }} />;
 
 interface PropsType extends Omit<LucideProps, "ref"> {
 	iconName: keyof typeof dynamicIconImports;
@@ -54,14 +53,14 @@ const SidebarItem: React.FC<PropsType> = ({ iconName, href }) => {
 	return (
 		<a
 			href={href}
-			className={`group flex items-center gap-3 rounded px-4 py-3 transition-all duration-300 hover:bg-[#DEE1F4] hover:text-[#5A6ACF] md:px-5 ${isActive ? "bg-[#DEE1F4] font-medium text-[#5A6ACF]" : "font-normal text-[#777da3]"}`}
+			className={`group flex justify-center items-center gap-3 rounded px-4 py-3 transition-all duration-300 hover:bg-[#FBF2F2] md:px-5 ${isActive ? "bg-[#DEE1F4] font-medium text-bbrose" : "font-normal text-bbrose"}`}
 		>
-			<Suspense fallback={fallback}>
+		
 				<Icon
 					size={25}
-					className={`${isActive ? "#5A6ACF" : "#A6ABC8"} text-gray-300 transition-all duration-300 group-hover:text-textblack`}
+					className={`${isActive ? "#5A6ACF" : "#A6ABC8"} text-irongray transition-all duration-300 group-hover:text-textblack`}
 				/>
-			</Suspense>
+		
 		</a>
 	);
 };

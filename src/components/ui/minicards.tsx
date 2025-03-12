@@ -2,12 +2,12 @@ import type * as React from "react"
 
 import { cn } from "@/lib/utils"
 
-function Card({ className, ...props }: React.ComponentProps<"div">) {
+function MiniCard({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card"
       className={cn(
-        "bg-gradient-to-r from-gray-100 to-bbrose text-card-foreground w-135 h-55 flex flex-col gap-8 m-5 rounded-xl border py-6 shadow-sm",
+        "bg-gray-100 from-gray-100 to-bbrose text-card-foreground w-80 h-40 flex flex-col gap-8 mt-5 rounded-xl border py-6 shadow-sm",
         className
       )}
       {...props}
@@ -15,7 +15,7 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
+function SmCardHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-header"
@@ -25,27 +25,27 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
+function SmCardTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-title"
-      className={cn("leading-none font-semibold text-lg", className)}
+      className={cn("leading-none font-semibold", className)}
       {...props}
     />
   )
 }
 
-function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
+function SmCardDescription({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-description"
-      className={cn("text-muted-foreground text-md", className)}
+      className={cn("text-muted-foreground text-sm", className)}
       {...props}
     />
   )
 }
 
-function CardContent({ className, ...props }: React.ComponentProps<"div">) {
+function SmCardContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-content"
@@ -55,7 +55,7 @@ function CardContent({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
+function SmCardFooter({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-footer"
@@ -65,7 +65,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function CardDetail({ className, ...props }: React.ComponentProps<"div">) {
+function SmCardDetail({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-detail"
@@ -75,4 +75,4 @@ function CardDetail({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent, CardDetail }
+export { MiniCard, SmCardHeader, SmCardFooter, SmCardTitle, SmCardDescription, SmCardContent, SmCardDetail }

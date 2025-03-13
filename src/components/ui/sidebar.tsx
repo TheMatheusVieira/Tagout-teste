@@ -15,6 +15,11 @@ const menuItems: Item[] = [
 	{ title: "Key", iconName: "key-round", href: "/" },
 ];
 
+const othersItems: Item[] = [
+	{ title: "Help", iconName: "circle-help", href: "/" },
+	{ title: "Logout", iconName: "log-out", href: "/login" },
+]
+
 const Sidebar = () => (
 	<aside className="justify-center fixed right-0 top-0 h-dvh max-w-[110px] bg-[#FFFFFF] shadow-md border-r-2 border-[#AE080B]">
 		<h1 className="text-center border-b-2 border-[#AE080B] m-5 pb-5 text-2xl font-bold text-[#AE080B]">
@@ -22,6 +27,10 @@ const Sidebar = () => (
 		</h1>
 		<nav className="p-4 md:p-5 ">
 			<SidebarSection title="TAGOUT" items={menuItems} />
+
+			<div className="bottom-0 absolute mb-5">
+			<SidebarSection title="1.0" items={othersItems} />
+			</div>
 		</nav>
 	</aside>
 );

@@ -13,10 +13,10 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import Sidebar from "@/components/ui/sidebar";
-import { CircleUser, House } from "lucide-react";
 
 import { UseCard } from "../components/useCard";
 import { UseMiniCard } from "@/components/useMiniCard";
+import { Footer } from "@/components/useFooter";
 
 export default function Home() {
   return (
@@ -88,19 +88,8 @@ export default function Home() {
         </div>
 
         <div className="flex flex-row justify-center relative">
-          <div className="flex-row flex gap-20 ml-20 mt-2 absolute left-0 ">
 
-            <div className="text-irongray justify-items-center">
-              <House size={45} />
-              <span>Home</span>
-            </div>
-
-            <div className="text-irongray justify-items-center">
-              <CircleUser size={45} />
-              <span>Perfil</span>
-            </div>
-
-          </div>
+          <Footer />
 
           <div className="mt-5">
             <Pagination>

@@ -1,4 +1,3 @@
-import type React from 'react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardDetail } from './ui/card';
 import { CalendarDays, Clock } from 'lucide-react';
 

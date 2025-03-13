@@ -1,4 +1,3 @@
-import type React from "react";
 import { ArrowRight } from "lucide-react";
 import { MiniCard, SmCardDescription, SmCardHeader, SmCardTitle } from "./ui/minicards";
 

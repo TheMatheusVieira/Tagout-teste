@@ -1,0 +1,31 @@
+export default function Page() {
+  return (
+    <main className="flex flex-col h-screen">
+      <div>
+        <Header />
+         <Sidebar />
+
+
+        <div className="flex flex-row gap-5 w-full">
+          
+
+           //Conteúdo
+
+
+         
+        </div>
+
+
+        <h1 className="m-5 text-2xl text-red text font-bold">
+          Titulo
+        </h1>
+
+
+      </div>
+      
+      <div className="mt-auto mb-28">
+          <Footer />
+        </div>
+    </main>
+  );
+}

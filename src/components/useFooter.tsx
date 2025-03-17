@@ -2,7 +2,7 @@ import { CircleUser, House } from "lucide-react";
 
 
 export function Footer() {
-  return <div className="flex-row flex gap-20 ml-20 mt-2 absolute left-0 ">
+  return <div className="flex-row flex gap-20 ml-20 mt-2 absolute left-0 justify-baseline">
 
             <div className="text-irongray justify-items-center">
               <House size={45} />

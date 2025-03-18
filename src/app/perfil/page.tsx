@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/ui/header";
 import Sidebar from "@/components/ui/sidebar";
 import { Footer } from "@/components/useFooter";
-import { InputPerfilEmail, InputPerfilSenha } from "@/components/useInput";
+import { InputPerfilCidade, InputPerfilEmail, InputPerfilEmpresa, InputPerfilIdioma, InputPerfilPais, InputPerfilSenha } from "@/components/useInput";
 import { UserCircle2 } from "lucide-react";
 
 export default function Perfil() {
@@ -13,7 +13,7 @@ export default function Perfil() {
          <Sidebar />
 
 
-        <div className="flex flex-row gap-5 w-full">
+        <div className="flex flex-row gap-25 w-full">
           
 
     
@@ -23,7 +23,7 @@ export default function Perfil() {
   <span>ADM</span>
   <span>ID</span>
 
-  <a href="/" className="font-bold mt-2">GERENCIAR USUÁRIOS</a>
+  <a href="/" className="font-bold mt-2 underline">GERENCIAR USUÁRIOS</a>
   </div>
 
   <div className="flex items-center ml-20">
@@ -39,13 +39,13 @@ export default function Perfil() {
          </div>
 
          <div className="flex items-center flex-row gap-20 mb-10">
-          <InputPerfilEmail/>
-          <InputPerfilSenha/>
+          <InputPerfilPais/>
+          <InputPerfilCidade/>
          </div>
 
          <div className="flex items-center flex-row gap-20">
-          <InputPerfilEmail/>
-          <InputPerfilSenha/>
+          <InputPerfilEmpresa/>
+          <InputPerfilIdioma/>
          </div>
 
       </div>
@@ -54,16 +54,19 @@ export default function Perfil() {
 
      
       </div>
-      
-      <div className="mt-auto flex right-0 ">
+
+  <div className="mt-auto">
+      <div className="flex right-35 bottom-35 absolute ">
       <Button>SALVAR</Button>
       </div>
 
       <div className="w-full h-1 bg-gray-100"/>
 
+
       <div className="mt-5 mb-28">
           <Footer />
         </div>
+  </div>
     </main>
   );
 }

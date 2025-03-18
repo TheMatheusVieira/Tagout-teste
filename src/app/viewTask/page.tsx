@@ -90,19 +90,21 @@ export default function viewTask() {
         <Button className="rounded-sm bg-red">CONCLUIR ATIVIDADE</Button>
         </div>
         
+        </div>
     </div>
-    
 </div>
 
 <div className="bg-red h-80 w-2.5 rounded-t-md m-0 flex right-0 absolute bottom-70 [clip-path:polygon(0%_0%,100%_0%,100%_100%,10%_75%,0%_70%)]"/>
 
-<div className="w-full h-1 bg-gray-100"/>
+<div className="mt-auto">
 
-<div className="flex flex-row justify-center relative">
-<Footer />
+    <div className="w-full h-1 bg-gray-100"/>
+
+     <div className="mt-5 mb-28">
+          <Footer />
+      </div>
+
 </div>
-
-    </div>
-</main>
-      )
+    </main>
+      );
 }

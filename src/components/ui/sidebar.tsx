@@ -9,7 +9,7 @@ interface Item {
 }
 
 const menuItems: Item[] = [
-	{ title: "Dashboard", iconName: "chart-no-axes-combined", href: "/" },
+	{ title: "Dashboard", iconName: "chart-no-axes-combined", href: "/dashboard" },
 	{ title: "Page", iconName: "file-text", href: "/" },
 	{ title: "Time past", iconName: "history", href: "/" },
 	{ title: "Key", iconName: "key-round", href: "/" },

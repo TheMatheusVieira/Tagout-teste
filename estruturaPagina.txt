@@ -6,26 +6,34 @@ export default function Page() {
          <Sidebar />
 
 
-        <div className="flex flex-row gap-5 w-full">
-          
-
-           //Conteúdo
-
-
-         
+    <div className="flex flex-row w-full">
+         // <div className="flex flex-row m-5">
+            <h1 className=" text-2xl text-red text font-bold">
+              Monitoramento de atividade
+            </h1>
+            <Info size="24" className="mt-1.5 ml-10"/>
+            <Pause size="24" className="mt-1.5 ml-5"/>
         </div>
+    //Conteúdo
+
+    </div>
 
 
-        <h1 className="m-5 text-2xl text-red text font-bold">
-          Titulo
-        </h1>
-
-
+     
       </div>
-      
-      <div className="mt-auto mb-28">
+
+  <div className="mt-auto">
+
+
+      //Linha ou pagination
+      <div className="w-full h-1 bg-gray-100"/>
+
+
+      <div className="mt-5 mb-28">
           <Footer />
-        </div>
+      </div>
+
+  </div>
     </main>
   );
 }

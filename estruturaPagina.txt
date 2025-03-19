@@ -7,13 +7,7 @@ export default function Page() {
 
 
     <div className="flex flex-row w-full">
-         // <div className="flex flex-row m-5">
-            <h1 className=" text-2xl text-red text font-bold">
-              Monitoramento de atividade
-            </h1>
-            <Info size="24" className="mt-1.5 ml-10"/>
-            <Pause size="24" className="mt-1.5 ml-5"/>
-        </div>
+         
     //Conteúdo
 
     </div>

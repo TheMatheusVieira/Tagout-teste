@@ -2,6 +2,7 @@ import { ChartTasksEx } from "@/components/ui/chart-tasks-ex";
 import { ChartTotalBloqueios } from "@/components/ui/chartlockstotal";
 import { Header } from "@/components/ui/header";
 import Sidebar from "@/components/ui/sidebar";
+import { FilterSearch } from "@/components/useFilterSearch";
 import { Footer } from "@/components/useFooter";
 import { IndicatorView } from "@/components/usePaginationB";
 import { EventList } from "@/components/useTable";
@@ -15,12 +16,12 @@ export default function DashboardEnterprise() {
         <Sidebar />
 
         <div className="flex flex-col w-full">
-          <span className="text-4xl text-textblack text ml-10 font-bold m-8">
+          <span className="text-4xl text-textblack text ml-15 font-bold m-8">
             TAGOUT
           </span>
 
           <div className="flex flex-row">
-            <div className="flex flex-row w-150 justify-between ml-25 items-center">
+            <div className="flex flex-row w-150 justify-between ml-30 items-center">
               <div className="flex flex-col font-bold gap-5 justify-center items-center text-center">
                 <div className="w-50">
                   <h1>ATIVOS BLOQUEADOS ATUALMENTE</h1>
@@ -39,37 +40,43 @@ export default function DashboardEnterprise() {
             </div>
 
     <div className="flex flex-col">
-            <div className="w-150 ml-60 mt-15 relative bg-amber-100 ">
+            <div className="w-150 ml-60 mt-20 relative">
               <h1 className="text-lg flex items-center font-bold">
-                Todas manutenções em andamento
+                Todas manutenções em andamento   <FilterSearch />
               </h1>
 
-              <div className="absolute flex w-150">
+            
+
+              <div className="absolute flex justify-center w-150">
                 <EventList />
 
-                <a href="/" className="text-red">
+                {/* <a href="/" className="text-red">
                   <ArrowRight />
-                </a>
+                </a> */}
+
+
+                <div className="w-80 h-8 absolute bottom-0">
+            <IndicatorView />
+            </div>
+            
               </div>
             </div>
 
 {/* Terminei aqui */}
-            <div className="w-80">
-            <IndicatorView />
-            </div>
+           
 
     </div>
 
         </div>
 
-          <div className="w-150 ml-25 mt-10 font-bold flex flex-row justify-between">
+          <div className="w-150 ml-30 mt-10 font-bold flex flex-row justify-between">
             <h1 className="text-lg flex items-center">
               Quantidade de tarefas em execução
             </h1>
             <span className="text-4xl">5</span>
           </div>
 
-          <div className="h-50 w-150 mr-5 ml-25 justify-center items-center flex">
+          <div className="h-50 w-150 mr-5 ml-30 justify-center items-center flex">
             <div className="w-[90%] mt-30">
               <ChartTasksEx />
             </div>

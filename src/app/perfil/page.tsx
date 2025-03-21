@@ -23,7 +23,7 @@ export default function Perfil() {
   <span>ADM</span>
   <span>ID</span>
 
-  <a href="/" className="font-bold mt-2 underline">GERENCIAR USUÁRIOS</a>
+  <a href="/manageUsers" className="font-bold mt-2 underline">GERENCIAR USUÁRIOS</a>
   </div>
 
   <div className="flex items-center ml-20">

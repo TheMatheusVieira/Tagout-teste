@@ -2,11 +2,12 @@ import { ChartTasksEx } from "@/components/ui/chart-tasks-ex";
 import { ChartTotalBloqueios } from "@/components/ui/chartlockstotal";
 import { Header } from "@/components/ui/header";
 import Sidebar from "@/components/ui/sidebar";
+import { TimePicker } from "@/components/ui/timepicker";
 import { FilterSearch } from "@/components/useFilterSearch";
 import { Footer } from "@/components/useFooter";
 import { IndicatorView } from "@/components/usePaginationB";
 import { EventList } from "@/components/useTable";
-import { ArrowRight } from "lucide-react";
+import { ArrowDownUp, ArrowRight } from "lucide-react";
 
 export default function DashboardEnterprise() {
   return (
@@ -16,9 +17,18 @@ export default function DashboardEnterprise() {
         <Sidebar />
 
         <div className="flex flex-col w-full">
+
+         
           <span className="text-4xl text-textblack text ml-15 font-bold m-8">
             TAGOUT
+          
           </span>
+
+          <div className="absolute m-8 ml-120 flex-row flex">
+          <TimePicker/>
+
+          <ArrowDownUp className="size-5 mt-3 ml-4"/>
+          </div>
 
           <div className="flex flex-row">
             <div className="flex flex-row w-150 justify-between ml-30 items-center">
@@ -42,7 +52,8 @@ export default function DashboardEnterprise() {
     <div className="flex flex-col">
             <div className="w-150 ml-60 mt-20 relative">
               <h1 className="text-lg flex items-center font-bold">
-                Todas manutenções em andamento   <FilterSearch />
+                Todas manutenções em andamento   
+                <FilterSearch/>
               </h1>
 
             
@@ -62,7 +73,7 @@ export default function DashboardEnterprise() {
               </div>
             </div>
 
-{/* Terminei aqui */}
+
            
 
     </div>

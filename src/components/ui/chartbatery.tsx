@@ -10,7 +10,7 @@ import {
 
 import { type ChartConfig, ChartContainer } from "@/components/ui/chart"
 const chartData = [
-  { browser: "safari", percentual: 100, fill: "var(--color-green)" },
+  { browser: "safari", percentual: 72, fill: "var(--color-green)" },
 ]
 
 const chartConfig = {

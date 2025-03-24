@@ -11,7 +11,7 @@ import {
 import { type ChartConfig, ChartContainer } from "@/components/ui/chart"
 import { cn } from "@/lib/utils"
 const chartData = [
-  { browser: "safari", percentual: 82, fill: "var(--color-red)" },
+  { browser: "safari", percentual: 72, fill: "var(--color-red)" },
 ]
 
 // function ChartContent({ className, ...props }: React.ComponentProps<"div">) {

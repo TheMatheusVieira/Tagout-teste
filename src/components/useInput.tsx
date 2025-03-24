@@ -1,6 +1,14 @@
 import { Input } from "@/components/ui/input"
 import { Label } from "@radix-ui/react-label"
 
+interface InputAtivoProps {
+  label: string; // Prop para o rótulo
+  id?: string; // ID opcional para o input
+  disabled?: boolean; // Se o input deve ser desativado
+  size?: "sm" | "md" | "lg" | "note"; //Definição de tamanhos
+}
+
+
 
 
 export function InputPerfilEmail() {
@@ -81,3 +89,31 @@ export function InputPerfilIdioma() {
 }
 
   
+//CADASTRO DE ATIVO
+
+export function InputAtivoMedio({ label, id = "input-id", disabled = false, size = "md" }: InputAtivoProps) {
+  // Definição de classes de tamanho
+  const sizeClasses = {
+    sm: "h-8 px-2 text-sm", // Pequeno
+    md: "h-10 px-3 text-base", // Médio (padrão)
+    lg: "h-12 px-4 text-lg", // Grande
+
+
+
+    note: "w-full h-300"
+    
+  };
+
+  
+  return (
+    <div className="grid w-full items-center gap-1.5 m-2">
+      <Label htmlFor={id} className="text-sm">{label}</Label>
+      <Input
+        type="text"
+        id={id}
+        disabled={disabled} // Permite desativar via prop
+        className="bg-gray-100 w-90 border rounded-sm h-10 px-2"
+      />
+    </div>
+  );
+}

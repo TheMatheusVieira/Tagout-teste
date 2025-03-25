@@ -5,7 +5,7 @@ interface InputAtivoProps {
   label: string; // Prop para o rótulo
   id?: string; // ID opcional para o input
   disabled?: boolean; // Se o input deve ser desativado
-  size?: "sm" | "md" | "lg" | "note"; //Definição de tamanhos
+  size?: "sm" | "md" | "lg" | "resp" | "note"; //Definição de tamanhos
 }
 
 
@@ -88,32 +88,48 @@ export function InputPerfilIdioma() {
   )
 }
 
-  
+export const sizeClasses = {
+  sm: "h-8 w-70 px-2 text-sm", // Pequeno
+  md: "h-10 w-80 px-3 text-md", // Médio (padrão)
+  lg: "h-10 w-120 px-4 text-md", // Grande
+
+  resp: "h-10 w-full mb-2 px-3 text-lg",
+  note: "h-30 w-full text-start pt-2 flex items-start",
+
+};
+
 //CADASTRO DE ATIVO
 
-export function InputAtivoMedio({ label, id = "input-id", disabled = false, size = "md" }: InputAtivoProps) {
-  // Definição de classes de tamanho
-  const sizeClasses = {
-    sm: "h-8 px-2 text-sm", // Pequeno
-    md: "h-10 px-3 text-base", // Médio (padrão)
-    lg: "h-12 px-4 text-lg", // Grande
-
-
-
-    note: "w-full h-300"
-    
-  };
-
+export function InputAtivoMedio({ label, id = "input-id", disabled = false, size}: InputAtivoProps) {
+  const isTextArea = size === "note"; // Verifica se é uma nota
   
   return (
     <div className="grid w-full items-center gap-1.5 m-2">
       <Label htmlFor={id} className="text-sm">{label}</Label>
+      {isTextArea ? (
+      <textarea
+        id={id}
+        disabled={disabled}
+        className={`bg-gray-100 border border-[#AFAFAF] rounded-sm ${sizeClasses[size] || sizeClasses.md} p-2 resize-none`}
+      />
+      ) : (
       <Input
         type="text"
         id={id}
-        disabled={disabled} // Permite desativar via prop
-        className="bg-gray-100 w-90 border rounded-sm h-10 px-2"
+        disabled={disabled}
+        className={`bg-gray-100 border border-[#AFAFAF] rounded-sm ${sizeClasses[size ?? "md"]}`}
       />
+      )}
     </div>
   );
+}
+
+//CADASTRO NOVO COLABORADOR
+export function InputNovoColaborador({label, size = "lg"}: InputAtivoProps) {
+  return (
+    <div className="grid items-center gap-1.5 m-2">
+      <Label htmlFor="empresa" className="text-sm">{label}</Label>
+      <Input type="text" id="empresa" className={`bg-bbrose border border-red rounded-sm h-10" ${sizeClasses[size ?? "lg"]}`}/>
+    </div>
+  )
 }

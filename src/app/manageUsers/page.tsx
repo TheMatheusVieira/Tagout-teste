@@ -36,11 +36,11 @@ export default function ManageUsers() {
         <div className="text-irongray mt-15 text-xl font-bold gap-10 flex flex-row underline justify-center items-center">
           <a href="/cadastroAtivo">CADASTRAR ATIVO</a>
 
-          <a href="/">ADICIONAR NOVO COLABORADOR</a>
+          <a href="/cadastroColab">ADICIONAR NOVO COLABORADOR</a>
 
-          <a href="/">CADASTRAR NOVA EMPRESA</a>
+          <a href="/cadastroEmpresa">CADASTRAR NOVA EMPRESA</a>
 
-          <a href="/">CADASTRAR SETOR</a>
+          <a href="/cadastroSetor">CADASTRAR SETOR</a>
         </div>
 
         <div className="mt-5 mb-28">

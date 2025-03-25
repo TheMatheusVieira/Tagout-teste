@@ -10,7 +10,7 @@ export function ConjCadastrar(){
           CADASTRAR
         </a>
 
-        <button type="button" className="h-12 bg-red w-15 rounded-sm mt-5 flex justify-center items-center">
+        <button type="button" className="cursor-pointer shadow-md shadow-gray-200 hover:bg-red-900 gap-1.5 px-3 has-[>svg]:px-2.5 h-12 bg-red w-15 rounded-sm mt-5 flex justify-center items-center">
             <span>
                 <Upload className="size-8 text-white"/>
             </span>

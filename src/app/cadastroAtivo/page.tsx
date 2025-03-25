@@ -41,15 +41,15 @@ export default function CadastrarAtivo() {
               </div>
      
      
-              <div className="flex flex-row mt-10">
+              <div className="flex flex-row mt-10 mb-8">
           <div className="w-[50%] h-1 bg-red" />
           <div className="w-[50%] h-1 bg-gray-100" />
         </div>
 
-        <div>
-          <InputAtivoMedio label="Responsável pelo ativo"/>
-          <InputAtivoMedio label="Notas adicionais" size="note"/>
-        </div>
+       <div>
+          <InputAtivoMedio label="Responsável pelo ativo" size="resp"/>
+          <InputAtivoMedio label="Notas adicionais" size="note" />
+        </div> 
 
         <ConjCadastrar/>
 

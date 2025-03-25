@@ -1,6 +1,6 @@
 import type { LucideProps } from "lucide-react";
 import { lazy, Suspense } from "react";
-import dynamicIconImports from "lucide-react/dynamicIconImports";
+import dynamicIconImports from "lucide-react/dynamicIconImports";    
 
 interface Item {
 	title: string;
@@ -10,13 +10,14 @@ interface Item {
 
 const menuItems: Item[] = [
 	{ title: "Dashboard", iconName: "chart-no-axes-combined", href: "/dashboard" },
-	{ title: "Page", iconName: "file-text", href: "/" },
-	{ title: "Time past", iconName: "history", href: "/" },
+	{ title: "Page", iconName: "file-text", href: "/ordens" },
+	{ title: "Time past", iconName: "history", href: "/history" },
 	{ title: "Key", iconName: "key-round", href: "/" },
+	
 ];
 
 const othersItems: Item[] = [
-	{ title: "Help", iconName: "circle-help", href: "/" },
+	{ title: "Help", iconName: "circle-help", href: "/ajuda" },
 	{ title: "Logout", iconName: "log-out", href: "/login" },
 ]
 
@@ -73,5 +74,5 @@ const SidebarItem: React.FC<PropsType> = ({ iconName, href }) => {
 		</a>
 	);
 };
-
+  
 export default Sidebar;

@@ -1,3 +1,8 @@
+"use client";
+
+import { useState } from "react";
+import Modal from "@/components/Modal";
+
 import { ChartTask } from "@/components/ui/chartask";
 import { ChartBatery } from "@/components/ui/chartbatery";
 import { Header } from "@/components/ui/header";
@@ -8,13 +13,18 @@ import { Footer } from "@/components/useFooter";
 import { TaskBlock } from "@/components/useTaskBlock";
 import { PaginationComponent } from "@/components/usePagination";
 
+
+
 export default function Home() {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <main>
-      <main className="flex flex-col h-screen">
+    <div>
+      <div className="flex flex-col h-screen">
         <div>
           <Header />
-          <Sidebar />
+          <Sidebar/>
 
           <div className="flex flex-row gap-5 w-full">
             <div>
@@ -58,17 +68,35 @@ export default function Home() {
               <UseCard />
               <UseCard />
             </div>
+
+          
           </div>
 
           <div className="flex flex-row justify-center relative mt-1.5">
             <Footer />
 
             <div className="mt-4">
-              <PaginationComponent />
+              {/* <PaginationComponent /> */}
             </div>
           </div>
         </div>
-      </main>
-    </main>
+
+        
+      </div>
+     
+      
+            {/* Botão para abrir a modal */}
+            {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
+      <button
+              onClick={() => setIsModalOpen(true)}
+              className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+            >
+              Abrir Modal
+            </button>
+      
+            {/* Exibe a modal apenas quando isModalOpen for true */}
+            {isModalOpen && <Modal onClose={() => setIsModalOpen(false)} />}
+          
+    </div>
   );
 }

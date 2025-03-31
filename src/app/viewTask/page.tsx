@@ -1,3 +1,4 @@
+"use client"
 import { Header } from "@/components/ui/header";
 import { Footer } from "@/components/useFooter";
 import Sidebar from "@/components/ui/sidebar";
@@ -8,26 +9,33 @@ import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import extravamento from "@/assets/extravamento.svg"
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 export default function viewTask() {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    const toggleSidebar = () => {
+      setIsSidebarOpen(!isSidebarOpen);
+    };
       return (
 <main>
     <div>
-     <Header />
-     <Sidebar />
+    <Header  
+          toggleSidebar={toggleSidebar}
+          isSidebarOpen={isSidebarOpen}/>
 
-    <div className="flex flex-row gap-5 w-full">
+          <Sidebar isOpen={isSidebarOpen}/>
 
+        {/* TÍTULO + INFOS + PAUSE */}
         <div className="flex flex-row m-5">
-            <h1 className=" text-2xl text-red text font-bold">
+            <h1 className=" text-2xl text-red text font-bold ml-5">
               Monitoramento de atividade
             </h1>
             <Info size="24" className="mt-1.5 ml-10"/>
             <Pause size="24" className="mt-1.5 ml-5"/>
         </div>
 
-    </div>
-          
+
 <div className="flex flex-row gap-10 ml-15">
         <div className="flex flex-col mt-8">
 
@@ -48,7 +56,7 @@ export default function viewTask() {
 </div>
         </div>
 
-    <div>
+    <div className="ml-2">
         <Card className="h-135 w-170 relative pt-4">
             <div className="m-4 mt-0">
 

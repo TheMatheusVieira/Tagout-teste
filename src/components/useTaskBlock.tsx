@@ -1,7 +1,7 @@
 export function TaskBlock() {
   return (
     <div>
-      <h1 className="m-5 text-2xl text-red text font-bold">
+      <h1 className="m-5 ml-5 text-2xl text-red text font-bold">
         Manutenção atual: Painel elétrico X
       </h1>
 

@@ -25,6 +25,7 @@ const chartConfig = {
 
 export function ChartBatery() {
   return (
+    
         <ChartContainer
           config={chartConfig}
           className="mx-auto aspect-square max-h-[250px]"
@@ -78,5 +79,6 @@ export function ChartBatery() {
             </PolarRadiusAxis>
           </RadialBarChart>
         </ChartContainer>
+       
   )
 }

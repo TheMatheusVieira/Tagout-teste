@@ -17,33 +17,7 @@ export default function Modal({ onClose }: ModalProps) {
   }, [onClose]);
 
   return (
-//     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-//       <div className="bg-white p-6 rounded-lg shadow-lg w-96 relative">
-//         <h2 className="text-xl font-bold text-center">Minha Modal</h2>
-//         <p className="text-gray-600 text-center mt-2">Conteúdo da modal...</p>
-
-//         {/* Botão de fechar */}
-//         {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
-// <button
-//           onClick={onClose}
-//           className="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-2xl"
-//         >
-//           &times;
-//         </button>
-
-//         <div className="mt-4 text-center">
-//           {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
-// <button
-//             onClick={onClose}
-//             className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 transition"
-//           >
-//             Fechar
-//           </button>
-//         </div>
-//       </div>
-//     </div>
-
-<div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
+<div className="fixed inset-0 flex items-center justify-center bg-black/50">
 <div className="bg-white p-6 rounded-lg shadow-lg w-96 relative">
   <h2 className="text-xl font-bold text-center">Gerar acesso</h2>
   <h3 className="text-lg font-semibold text-center text-gray-700">
@@ -74,7 +48,7 @@ export default function Modal({ onClose }: ModalProps) {
     </div>
     <div>
       {/* biome-ignore lint/a11y/noLabelWithoutControl: <explanation> */}
-<label className="block text-sm font-medium text-gray-700">E-mail de convite</label>
+<label className="block text-sm font-medium text-gray-700">E-mail do convidado</label>
       <input type="email" className="w-full border p-2 rounded" value="email@gmail.com" readOnly />
     </div>
     <div className="flex space-x-4">
@@ -89,14 +63,14 @@ export default function Modal({ onClose }: ModalProps) {
         {/* biome-ignore lint/a11y/noLabelWithoutControl: <explanation> */}
 <label className="block text-sm font-medium text-gray-700">Empresa</label>
         <select className="w-full border p-2 rounded">
-          <option>Tagent</option>
+          <option>Tagout</option>
         </select>
       </div>
     </div>
   </div>
 
   {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
-<button className="mt-4 w-full bg-red-600 text-white py-2 rounded text-lg font-semibold hover:bg-red-700">
+<button className="mt-4 w-full bg-red text-white py-2 rounded-sm text-lg font-semibold hover:bg-red-900 hover:cursor-pointer">
     GERAR ACESSO
   </button>
 </div>

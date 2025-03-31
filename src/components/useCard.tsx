@@ -11,7 +11,7 @@ export function UseCard() {
                 </CardHeader>
               </div>
 
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-row gap-8">
                 <div className="text-irongray">
                   <CardContent>
                     <div className="justify-items-start">

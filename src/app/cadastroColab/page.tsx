@@ -1,18 +1,29 @@
+"use client"
 import { ConjCadastrar } from "@/components/btCadastrar";
 import { Header } from "@/components/ui/header";
 import Sidebar from "@/components/ui/sidebar";
 import { Footer } from "@/components/useFooter";
 import { InputAtivoMedio, InputNovoColaborador } from "@/components/useInput";
+import { useState } from "react";
+
 
 
 
 export default function CadastrarAtivo() {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  
+    const toggleSidebar = () => {
+      setIsSidebarOpen(!isSidebarOpen);
+    };
+    
     return (
       <main className="flex flex-col h-screen">
         <div>
-          <Header />
-           <Sidebar />
-  
+        <Header  
+          toggleSidebar={toggleSidebar}
+          isSidebarOpen={isSidebarOpen}/>
+
+          <Sidebar isOpen={isSidebarOpen}/>
   
       <div className="flex flex-col w-full justify-center items-center mt-5">
            

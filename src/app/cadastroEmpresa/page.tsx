@@ -1,4 +1,4 @@
-import { ConjCadastrar } from "@/components/btCadastrar";
+import { ConjCadastrar } from "@/components/useRegister";
 import { Header } from "@/components/ui/header";
 import Sidebar from "@/components/ui/sidebar";
 import { Footer } from "@/components/useFooter";

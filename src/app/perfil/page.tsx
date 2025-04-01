@@ -1,36 +1,33 @@
+"use client"
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/ui/header";
 import Sidebar from "@/components/ui/sidebar";
+import { CardUser } from "@/components/useCard";
 import { Footer } from "@/components/useFooter";
 import { InputPerfilCidade, InputPerfilEmail, InputPerfilEmpresa, InputPerfilIdioma, InputPerfilPais, InputPerfilSenha } from "@/components/useInput";
-import { UserCircle2 } from "lucide-react";
+import { useState } from "react";
 
 export default function Perfil() {
+   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  
+    const toggleSidebar = () => {
+      setIsSidebarOpen(!isSidebarOpen);
+    };
+  
   return (
     <main className="flex flex-col h-screen">
       <div>
-        <Header />
-         <Sidebar />
+      <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
+
+      <Sidebar isOpen={isSidebarOpen} />
 
 
         <div className="flex flex-row gap-25 w-full">
           
 
-    
-<div className="w-130 h-50 m-15 mt-20 rounded-xl flex flex-row border-1">
-  <div className="m-5 flex flex-col font-semibold text-xl gap-2">
-  <span>Nome colaborador</span>
-  <span>ADM</span>
-  <span>ID</span>
 
-  <a href="/manageUsers" className="font-bold mt-2 underline">GERENCIAR USUÁRIOS</a>
-  </div>
-
-  <div className="flex items-center ml-20">
-    <UserCircle2 size={150} />
-  </div>
   
-</div>
+  <CardUser/>
 
 <div className="mt-20">
          <div className="flex items-center flex-row gap-20 mb-10">

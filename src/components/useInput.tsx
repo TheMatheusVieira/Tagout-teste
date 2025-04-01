@@ -10,7 +10,27 @@ interface InputAtivoProps {
 
 
 
+//LOGIN
+export function InputLoginEmail() {
+  return (
+    <div className="grid w-full max-w-xs items-center gap-1.5">
+      <Label htmlFor="email">E-mail</Label>
+      <Input type="email" id="email" className="border-red bg-bbrose" />
+    </div>
+  )
+}
 
+export function InputLoginSenha() {
+    return (
+      <div className="grid w-full max-w-xs items-center gap-1.5">
+        <Label htmlFor="senha">Senha</Label>
+        <Input type="password" id="senha" className="border-red bg-bbrose" />
+      </div>
+    )
+  }
+  
+
+//PERFIL DO USUÁRIO
 export function InputPerfilEmail() {
   return (
     <div className="grid w-100 items-center gap-1.5">

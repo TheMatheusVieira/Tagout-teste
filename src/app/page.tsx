@@ -5,8 +5,7 @@ import { ChartTask } from "@/components/ui/chartask";
 import { ChartBatery } from "@/components/ui/chartbatery";
 import { Header } from "@/components/ui/header";
 import Sidebar from "@/components/ui/sidebar";
-import { UseCard } from "../components/useCard";
-import { UseMiniCard } from "@/components/useMiniCard";
+import { UseCard, UseMiniCard } from "../components/useCard";
 import { Footer } from "@/components/useFooter";
 import { TaskBlock } from "@/components/useTaskBlock";
 import { PaginationComponent } from "@/components/usePagination";
@@ -27,7 +26,7 @@ export default function Home() {
           <Sidebar isOpen={isSidebarOpen} />
 
           <div className="flex flex-row gap-5 w-full ">
-            {/* INFORMAÇÕES DE MANUTENÇÃO + BT ACOMPANHAR */}
+            {/* INFORMAÇÕES DE MANUTENÇÃO + BOTÃO  ACOMPANHAR */}
             <div className="ml-5">
               <TaskBlock />
             </div>
@@ -36,6 +35,7 @@ export default function Home() {
               <div className="bg-red h-35 w-0.5 flex" />
             </div>
 
+            {/* GRÁFICOS BATERIA E PORCENTAGEM DE CONCLUSÃO */}
             <div className="ml-12 h-50 mt-3 flex flex-row gap-5 mr-10">
               <ChartTask />
               <ChartBatery />
@@ -46,6 +46,7 @@ export default function Home() {
                 Outras atividades em andamento
               </h1>
 
+              {/* OUTRAS ATIVIDADES RECENTES */}
               <div className="flex flex-row gap-8">
                 <UseMiniCard />
                 <UseMiniCard />

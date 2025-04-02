@@ -1,6 +1,13 @@
 import { Input } from "@/components/ui/input"
 import { Label } from "@radix-ui/react-label"
 
+import i18nCountries from 'i18n-iso-countries';
+import ptLocale from 'i18n-iso-countries/langs/pt.json';
+// Registrar a localização em português
+i18nCountries.registerLocale(ptLocale);
+
+
+
 interface InputAtivoProps {
   label: string; // Prop para o rótulo
   id?: string; // ID opcional para o input
@@ -52,37 +59,40 @@ export function InputPerfilSenha() {
 
 
 export function InputPerfilPais() {
+  // Obter países em português
+  const countriesPT = i18nCountries.getNames('pt');
+  
+  const countryList = Object.entries(countriesPT)
+    .map(([code, name]) => ({
+      code,
+      name
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+
   return (
     <div className="grid w-100 items-center gap-1.5">
       <Label htmlFor="pais" className="font-bold text-md">País</Label>
       <select id="pais" className="border rounded-sm h-10 px-2">
         <option value="">Selecione seu país</option>
-        <option value="brasil">Brasil</option>
-        <option value="eua">Estados Unidos</option>
-        <option value="portugal">Portugal</option>
-        <option value="espanha">Espanha</option>
-        <option value="japao">Japão</option>
+        {countryList.map((country) => (
+          <option key={country.code} value={country.code}>
+            {country.name}
+          </option>
+        ))}
       </select>
     </div>
-  )
+  );
 }
-
 
 export function InputPerfilCidade() {
   return (
     <div className="grid w-100 items-center gap-1.5">
       <Label htmlFor="cidade" className="font-bold text-md">Cidade</Label>
-      <select id="cidade" className="border rounded-sm h-10 px-2">
-        <option value="">Selecione sua cidade</option>
-        <option value="brasil">São Bernardo do Campo</option>
-        <option value="eua">Santo André</option>
-        <option value="portugal">Mauá</option>
-        <option value="espanha">São Paulo</option>
-      </select>
+      <Input type="text" id="cidade" className="border rounded-sm h-10" placeholder="Digite sua cidade"/>
     </div>
   )
 }
-
+ 
 
 export function InputPerfilEmpresa() {
   return (

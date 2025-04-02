@@ -1,14 +1,23 @@
+"use client";
+import { useState } from "react";
 import { DataTableDemo } from "@/components/ui/dataTable";
 import { Header } from "@/components/ui/header";
 import Sidebar from "@/components/ui/sidebar";
 import { Footer } from "@/components/useFooter";
 
 export default function ManageUsers() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <main className="flex flex-col h-screen">
       <div>
-        <Header />
-        <Sidebar />
+        <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
+
+        <Sidebar isOpen={isSidebarOpen} />
 
         <div className="flex flex-row w-full">
           <div className="flex flex-col m-5">

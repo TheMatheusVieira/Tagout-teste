@@ -6,7 +6,7 @@ export function HistLine() {
   return (
     <div className="gap-5 ml-5">
       <div className="flex flex-row">
-        <div className="w-18 h-16 overflow-hidden rounded-md mr-5">
+        <div className="w-18 h-16 overflow-hidden rounded-md mr-5 mt-2.5">
           <Image
             src={Travamento}
             alt="Imagem do equipamento"

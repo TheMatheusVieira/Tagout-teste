@@ -5,11 +5,9 @@ import { ChartTasksEx } from "@/components/ui/chart-tasks-ex";
 import { Header } from "@/components/ui/header";
 import Sidebar from "@/components/ui/sidebar";
 import { TimePicker } from "@/components/ui/timepicker";
-import { FilterSearch } from "@/components/useFilterSearch";
 import { Footer } from "@/components/useFooter";
 import { IndicatorView } from "@/components/usePaginationB";
-
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Dashboard } from "@/components/useDashboard";
 import { DashFilter } from "@/components/dropDashFilter";
 import { EventListWithFilter } from "@/components/useTable";
@@ -33,6 +31,7 @@ export default function DashboardEnterprise() {
 
         {/* FILTROS DO DASHBOARD DA EMPRESA */}
         <div className="absolute m-8 ml-110 flex-row flex">
+          {/* <input type="time"/> */}
           <TimePicker />
           <DashFilter />
         </div>
@@ -43,13 +42,10 @@ export default function DashboardEnterprise() {
             <Dashboard />
 
             {/* PARTE INFERIOR DASHBOARD - GRÁFICOS DE COLUNA */}
-            <div className="w-150 ml-30 mt-10 font-bold flex flex-row justify-between">
-              <h1 className="text-lg flex items-center">
-                Quantidade de tarefas em execução
-              </h1>
-              <span className="text-4xl">5</span>
+            <div className="ml-30 mt-8 text-red-900 font-bold flex flex-row justify-between mr-10">
+              <span>Quantidade de atividades realizadas</span>
             </div>
-            <div className="h-50 w-150 mr-5 ml-30 justify-center items-center flex">
+            <div className="h-50 w-150 mr-5 ml-24 justify-center items-center flex">
               <div className="w-[90%] mt-30">
                 <ChartTasksEx />
               </div>
@@ -58,19 +54,19 @@ export default function DashboardEnterprise() {
 
           {/* LISTA DE ATIVIDADES EM ANDAMENTO */}
           <div className="flex flex-col">
-            <div className="w-150 ml-60 mt-20 relative">
-              
+            <div className="w-150 ml-60 mt-5 relative">
+              <EventListWithFilter />
+              <div className="flex justify-between mt-5">
+                <a href="/" className="text-red">
+                  <ArrowLeft />
+                </a>
 
-             
-                <EventListWithFilter />
+                <IndicatorView />
 
                 <a href="/" className="text-red">
                   <ArrowRight />
                 </a>
-                <div className="w-80 h-8 absolute bottom-0">
-                  <IndicatorView />
-                </div>
-           
+              </div>
             </div>
           </div>
         </div>

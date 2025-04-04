@@ -51,7 +51,7 @@ import {
   TableBody,
   TableCell,
   TableHead,
-  TableHeader,
+  TableHeader, 
   TableRow,
 } from "@/components/ui/table";
 
@@ -94,7 +94,6 @@ export function EventListWithFilter() {
   return (
     <div className="space-y-4">
       {/* Componente de Filtro e Busca */}
-      <div className="max-w-lg mx-auto">
         <div className="flex gap-2">
         <h1 className="text-lg flex items-center font-bold">
             Todas manutenções em andamento
@@ -170,7 +169,7 @@ export function EventListWithFilter() {
             )}
           </div>
         </div>
-      </div>
+      
 
       {/* Tabela de Eventos */}
       <div className="border rounded-md overflow-hidden dark:border-gray-700">

@@ -1,3 +1,6 @@
+"use client";
+import { useState } from "react";
+
 import { Header } from "@/components/ui/header";
 import Sidebar from "@/components/ui/sidebar";
 import { Footer } from "@/components/useFooter";
@@ -8,12 +11,17 @@ import logo from "@/assets/logo.svg";
 import { MapPin, PhoneCall, Smartphone } from "lucide-react";
 
 export default function CadastrarSetor() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
   return (
     <main className="flex flex-col h-screen">
       <div>
-        <Header />
-        <Sidebar />
+        <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
 
+        <Sidebar isOpen={isSidebarOpen} />
         <div className="flex flex-row w-full justify-center items-center">
           <div className="flex flex-col m-5 items-center">
             <Image src={logo} alt="logo TAGOUT" className="w-80 mt-15 mb-8" />

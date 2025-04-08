@@ -35,16 +35,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Span } from "next/dist/trace";
+import ModalEditUser from "../ModalEditUser";
 
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
 const partitionData = (data: any[], size: number): any[][] => {
   const result = [];
-
   for (let i = 0; i < data.length; i += size) {
     result.push(data.slice(i, i + size));
   }
-
   return result;
 };
 
@@ -145,7 +143,6 @@ const data: Users[] = [
     acesso: "Líder",
     nomecolab: "Colaborador 16",
   },
-
   {
     id: 17,
     empresa: "TAGOUT TREINAMENTO",
@@ -153,40 +150,40 @@ const data: Users[] = [
     nomecolab: "TESTE 17",
   },
   {
-    id: 17,
+    id: 18,
     empresa: "TAGOUT TREINAMENTO",
     acesso: "Líder",
-    nomecolab: "TESTE 17",
+    nomecolab: "TESTE 18",
   },
   {
-    id: 17,
+    id: 19,
     empresa: "TAGOUT TREINAMENTO",
     acesso: "Líder",
-    nomecolab: "TESTE 17",
+    nomecolab: "TESTE 19",
   },
   {
-    id: 17,
+    id: 20,
     empresa: "TAGOUT TREINAMENTO",
     acesso: "Líder",
-    nomecolab: "TESTE 17",
+    nomecolab: "TESTE 20",
   },
   {
-    id: 17,
+    id: 21,
     empresa: "TAGOUT TREINAMENTO",
     acesso: "Líder",
-    nomecolab: "TESTE 17",
+    nomecolab: "TESTE 21",
   },
   {
-    id: 17,
+    id: 22,
     empresa: "TAGOUT TREINAMENTO",
     acesso: "Líder",
-    nomecolab: "TESTE 17",
+    nomecolab: "TESTE 22",
   },
   {
-    id: 17,
+    id: 23,
     empresa: "TAGOUT TREINAMENTO",
     acesso: "Líder",
-    nomecolab: "TESTE 17",
+    nomecolab: "TESTE 23",
   },
 ];
 
@@ -197,94 +194,94 @@ export type Users = {
   nomecolab: string;
 };
 
-export const columns: ColumnDef<Users>[] = [
-  {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
-    accessorKey: "nomecolab",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Nome do usuário
-          <ArrowUpDown />
-        </Button>
-      );
-    },
-    cell: ({ row }) => <div className="">{row.getValue("nomecolab")}</div>,
-  },
-  {
-    accessorKey: "acesso",
-    header: "Nível de acesso",
-    cell: ({ row }) => <div className="">{row.getValue("acesso")}</div>,
-  },
-  {
-    accessorKey: "empresa",
-    header: () => <div className="text-right">Empresa principal</div>,
-
-    cell: ({ row }) => <div className="">{row.getValue("empresa")}</div>,
-  },
-  {
-    id: "actions",
-    enableHiding: false,
-    cell: ({ row }) => {
-      const users = row.original;
-
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(String(users.id))}
-            >
-              Copy users ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View users details</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      );
-    },
-  },
-];
-
 export function DataTableDemo() {
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    []
-  );
-  const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({});
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
+  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
+
+  const columns = React.useMemo<ColumnDef<Users>[]>(() => [
+    {
+      id: "select",
+      header: ({ table }) => (
+        <Checkbox
+          checked={
+            table.getIsAllPageRowsSelected() ||
+            (table.getIsSomePageRowsSelected() && "indeterminate")
+          }
+          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+          aria-label="Select all"
+        />
+      ),
+      cell: ({ row }) => (
+        <Checkbox
+          checked={row.getIsSelected()}
+          onCheckedChange={(value) => row.toggleSelected(!!value)}
+          aria-label="Select row"
+        />
+      ),
+      enableSorting: false,
+      enableHiding: false,
+    },
+    {
+      accessorKey: "nomecolab",
+      header: ({ column }) => {
+        return (
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          >
+            Nome do usuário
+            <ArrowUpDown className="ml-2 h-4 w-4" />
+          </Button>
+        );
+      },
+      cell: ({ row }) => <div>{row.getValue("nomecolab")}</div>,
+    },
+    {
+      accessorKey: "acesso",
+      header: "Nível de acesso",
+      cell: ({ row }) => <div>{row.getValue("acesso")}</div>,
+    },
+    {
+      accessorKey: "empresa",
+      header: () => <div className="text-right">Empresa principal</div>,
+      cell: ({ row }) => <div>{row.getValue("empresa")}</div>,
+    },
+    {
+      id: "actions",
+      enableHiding: false,
+      cell: ({ row }) => {
+        const users = row.original;
+
+        return (
+          <>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="h-8 w-8 p-0">
+                  <span className="sr-only">Open menu</span>
+                  <MoreHorizontal className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuLabel>Ações</DropdownMenuLabel>
+                <DropdownMenuItem
+                  onClick={() => navigator.clipboard.writeText(String(users.id))}
+                >
+                  Copiar ID de usuário
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={() => setIsModalOpen(true)}>
+                  Editar usuário
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </>
+        );
+      },
+    },
+  ], []);
 
   const table = useReactTable({
     data,
@@ -302,25 +299,22 @@ export function DataTableDemo() {
       columnFilters,
       columnVisibility,
       rowSelection,
-    }, 
-    initialState:{
-      pagination:{
-        pageSize:16
+    },
+    initialState: {
+      pagination: {
+        pageSize: 16
       }
     }
   });
 
-
-  const partitionedRows = partitionData(table.getRowModel().rows, 8); //Limite 2 linhas mas botão funciona
+  const partitionedRows = partitionData(table.getRowModel().rows, 8);
 
   return (
     <div className="w-full">
       <div className="flex items-center py-4">
         <Input
           placeholder="Pesquisar"
-          value={
-            (table.getColumn("nomecolab")?.getFilterValue() as string) ?? ""
-          }
+          value={(table.getColumn("nomecolab")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("nomecolab")?.setFilterValue(event.target.value)
           }
@@ -329,7 +323,7 @@ export function DataTableDemo() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">
-              Colunas <ChevronDown />
+              Colunas <ChevronDown className="ml-2 h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
@@ -380,29 +374,22 @@ export function DataTableDemo() {
               </TableHeader>
               <TableBody>
                 {rowGroup.length ? (
-                  rowGroup.map(
-                    (row: {
-                      id: React.Key | null | undefined;
-                      // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-                      getIsSelected: () => any;
-                      // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-                      getVisibleCells: () => any[];
-                    }) => (
-                      <TableRow
-                        key={row.id}
-                        data-state={row.getIsSelected() && "selected"}
-                      >
-                        {row.getVisibleCells().map((cell) => (
-                          <TableCell key={cell.id}>
-                            {flexRender(
-                              cell.column.columnDef.cell,
-                              cell.getContext()
-                            )}
-                          </TableCell>
-                        ))}
-                      </TableRow>
-                    )
-                  )
+                  rowGroup.map((row) => (
+                    <TableRow
+                      key={row.id}
+                      data-state={row.getIsSelected() && "selected"}
+                    >
+                      {/* biome-ignore lint/suspicious/noExplicitAny: <explanation> */}
+                      {row.getVisibleCells().map((cell: { id: React.Key | null | undefined; column: { columnDef: { cell: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | React.ComponentType<any> | null | undefined; }; }; getContext: () => any; }) => (
+                        <TableCell key={cell.id}>
+                          {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                          )}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  ))
                 ) : (
                   <TableRow>
                     <TableCell
@@ -442,6 +429,12 @@ export function DataTableDemo() {
           </Button>
         </div>
       </div>
+
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50">
+          <ModalEditUser onClose={() => setIsModalOpen(false)} />
+        </div>
+      )}
     </div>
   );
 }

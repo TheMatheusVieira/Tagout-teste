@@ -16,13 +16,13 @@ export default function CadastrarSetor() {
 
   return (
     <main className="flex flex-col h-screen">
-      <div>
+      <div className="flex-1 flex flex-col">
         <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
 
         <Sidebar isOpen={isSidebarOpen} />
 
-        <div className="flex flex-row w-full justify-center">
-          <div className="flex flex-col m-5 ">
+        <div className="flex-1 flex flex-row justify-center items-center">
+          <div className="flex flex-col m-5">
             <h1 className="flex justify-center text-3xl text-red text font-medium mt-2 mb-5">
               Cadastro de setores
             </h1>

@@ -14,6 +14,7 @@ import ModalInfos from "@/components/ModalInfos";
 
 export default function viewTask() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [userImage, setUserImage] = useState<string | null>(null);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -26,7 +27,7 @@ export default function viewTask() {
       <div>
         <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
 
-        <Sidebar isOpen={isSidebarOpen} />
+        <Sidebar isOpen={isSidebarOpen} userImage={userImage} />
 
         {/* TÍTULO + INFOS + PAUSE */}
         <div className="flex flex-row m-5">

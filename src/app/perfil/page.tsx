@@ -17,6 +17,8 @@ import { useState } from "react";
 export default function Perfil() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  const [userImage, setUserImage] = useState<string | null>(null);
+
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
@@ -26,10 +28,10 @@ export default function Perfil() {
       <div>
         <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
 
-        <Sidebar isOpen={isSidebarOpen} />
+        <Sidebar isOpen={isSidebarOpen} userImage={userImage} />
 
         <div className="flex flex-row gap-25 w-full">
-          <CardUser />
+          <CardUser onImageUpload={setUserImage} />
 
           <div className="mt-20">
             <div className="flex items-center flex-row gap-20 mb-10">

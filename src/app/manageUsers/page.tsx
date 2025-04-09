@@ -8,7 +8,7 @@ import { Footer } from "@/components/useFooter";
 
 export default function ManageUsers() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
+  const [userImage, setUserImage] = useState<string | null>(null);
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
@@ -18,7 +18,7 @@ export default function ManageUsers() {
       <div>
         <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
 
-        <Sidebar isOpen={isSidebarOpen} />
+        <Sidebar isOpen={isSidebarOpen} userImage={userImage} />
 
         <div className="flex flex-row w-full">
           <div className="flex flex-col m-5">

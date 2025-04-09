@@ -13,16 +13,17 @@ import {
   SmCardHeader,
   SmCardTitle,
 } from "./ui/minicards";
+import { useRef, useState } from "react";
 
 //CARDS DE COLABOTADORES DA ATIVIDADE
 export function UseCard() {
   return (
-    <Card>
+    <Card className="relative z-0"> 
       <div className="relative">
         <CardHeader>
           <CardTitle>Nome do colaborador</CardTitle>
           <CardDescription>Cargo do colaborador</CardDescription>
-          <CardDetail />
+          <CardDetail className="absolute right-0 top-0" />
         </CardHeader>
       </div>
 
@@ -71,18 +72,71 @@ export function UseMiniCard() {
 }
 
 //CARD PERFIL DO USUÁRIO
-export function CardUser(){
+// export function CardUser(){
+//   return (
+//     <div className="w-130 h-50 m-15 mt-20 rounded-xl flex flex-row border-1">
+//       <div className="m-5 flex flex-col font-semibold text-xl gap-2">
+//       <span>Nome colaborador</span>
+//       <span>ADM</span>
+//       <span>ID</span>
+
+//       <a href="/manageUsers" className="font-bold mt-2 underline">GERENCIAR USUÁRIOS</a>
+//     </div><div className="flex items-center ml-20">
+//         <UserCircle2 size={150} />
+//       </div>
+//       </div>
+//   );
+// }
+export function CardUser({ onImageUpload }: { onImageUpload: (image: string) => void }) {
+  const [userImage, setUserImage] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleImageClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const image = event.target?.result as string;
+        setUserImage(image);
+        onImageUpload(image); // Envia a imagem para o componente pai
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+  
   return (
     <div className="w-130 h-50 m-15 mt-20 rounded-xl flex flex-row border-1">
       <div className="m-5 flex flex-col font-semibold text-xl gap-2">
-      <span>Nome colaborador</span>
-      <span>ADM</span>
-      <span>ID</span>
-
-      <a href="/manageUsers" className="font-bold mt-2 underline">GERENCIAR USUÁRIOS</a>
-    </div><div className="flex items-center ml-20">
-        <UserCircle2 size={150} />
+        <span>Nome colaborador</span>
+        <span>ADM</span>
+        <span>ID</span>
+        <a href="/manageUsers" className="font-bold mt-2 underline">
+          GERENCIAR USUÁRIOS
+        </a>
       </div>
+      {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+<div className="flex items-center ml-20 cursor-pointer" onClick={handleImageClick}>
+        {userImage ? (
+          <img 
+            src={userImage} 
+            alt="User" 
+            className="w-[150px] h-[150px] rounded-full object-cover" 
+          />
+        ) : (
+          <UserCircle2 size={150} />
+        )}
+        <input
+          type="file"
+          ref={fileInputRef}
+          onChange={handleFileChange}
+          accept="image/*"
+          className="hidden"
+        />
       </div>
+    </div>
   );
 }

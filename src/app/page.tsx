@@ -13,6 +13,8 @@ import { PaginationComponent } from "@/components/usePagination";
 export default function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  const [userImage, setUserImage] = useState<string | null>(null);
+  
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
@@ -23,7 +25,7 @@ export default function Home() {
         <div>
           <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
 
-          <Sidebar isOpen={isSidebarOpen} />
+          <Sidebar isOpen={isSidebarOpen} userImage={userImage} />
 
           <div className="flex flex-row gap-5 w-full ">
             {/* INFORMAÇÕES DE MANUTENÇÃO + BOTÃO  ACOMPANHAR */}

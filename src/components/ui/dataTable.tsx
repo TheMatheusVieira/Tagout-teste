@@ -226,7 +226,7 @@ export function DataTableDemo() {
     },
     {
       accessorKey: "nomecolab",
-      header: ({ column }) => {
+      header:({ column }) => {
         return (
           <Button
             variant="ghost"

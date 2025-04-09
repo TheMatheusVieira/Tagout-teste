@@ -31,7 +31,7 @@ const othersItems: Item[] = [
   { title: "Logout", icon: FaSignOutAlt, href: "/login" },
 ];
 
-const Sidebar = ({ isOpen }: { isOpen: boolean }) => {
+const Sidebar = ({ isOpen, userImage }: { isOpen: boolean; userImage: string | null }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const isActive = false;
@@ -51,12 +51,20 @@ const Sidebar = ({ isOpen }: { isOpen: boolean }) => {
 
       <aside
         className={`fixed right-0 top-0 h-dvh w-[110px] bg-white shadow-md border-r-2 border-[#AE080B] 
-			transform transition-transform duration-300 ease-in-out z-50
+			transform transition-transform duration-300 ease-in-out z-[9999]
 			${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
-        <h1 className="text-center border-b-2 border-[#AE080B] m-5 pb-5 text-2xl font-bold text-[#AE080B]">
-          LOGO
-        </h1>
+        <div className="text-center border-b-2 border-[#AE080B] m-5 pb-5">
+          {userImage ? (
+            <img 
+              src={userImage} 
+              alt="Logo" 
+              className="w-16 h-16 mx-auto rounded-md border-[#AE080B] border object-cover" 
+            />
+          ) : (
+            <h1 className="text-2xl font-bold text-[#AE080B]">IMG</h1>
+          )}
+        </div>
 
         <nav className="p-4 md:p-5 relative h-[calc(100%-120px)]">
           <SidebarSection title="TAGOUT" items={menuItems} />

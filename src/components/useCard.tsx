@@ -114,7 +114,7 @@ export function CardUser({ onImageUpload }: { onImageUpload: (image: string) => 
         <span>Nome colaborador</span>
         <span>ADM</span>
         <span>ID</span>
-        <a href="/manageUsers" className="font-bold mt-2 underline">
+        <a href="/manageUsers" className="font-bold mt-2 underline hover:text-red-900">
           GERENCIAR USUÁRIOS
         </a>
       </div>
@@ -127,7 +127,7 @@ export function CardUser({ onImageUpload }: { onImageUpload: (image: string) => 
             className="w-[150px] h-[150px] rounded-full object-cover" 
           />
         ) : (
-          <UserCircle2 size={150} />
+          <UserCircle2 size={150} className="hover:text-red-900"/>
         )}
         <input
           type="file"

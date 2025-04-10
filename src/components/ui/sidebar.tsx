@@ -59,18 +59,18 @@ const Sidebar = ({ isOpen, userImage }: { isOpen: boolean; userImage: string | n
             <img 
               src={userImage} 
               alt="Logo" 
-              className="w-16 h-16 mx-auto rounded-md border-[#AE080B] border object-cover" 
+              className="w-15 h-15 mx-auto rounded-md border-[#AE080B] border object-cover" 
             />
-          ) : (
+          ) : ( 
             <h1 className="text-2xl font-bold text-[#AE080B]">IMG</h1>
           )}
         </div>
 
-        <nav className="p-4 md:p-5 relative h-[calc(100%-120px)]">
+        <nav className="p-4 md:p-5 relative h-[calc(100%-130px)]">
           <SidebarSection title="TAGOUT" items={menuItems} />
 
-          {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
           <button
+            type="button"
             onClick={() => setIsModalOpen(true)}
             className={`group flex justify-center items-center gap-3 rounded px-4 py-3 transition-all duration-300 hover:bg-[#FBF2F2] md:px-5 w-full ${
               isActive

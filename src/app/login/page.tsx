@@ -12,7 +12,7 @@ export default function Login() {
       </div>
       <Image src={logo} alt="Logo da Tagout" className="w-80 z-10" />
       <div className="z-10">
-        <h1 className="m-5 text-2xl font-bold text-textblack">LOGIN</h1>
+        <h1 className="m-2 text-2xl font-bold text-textblack">LOGIN</h1>
       </div>
       <InputLoginEmail />
       <InputLoginSenha />
@@ -25,6 +25,7 @@ export default function Login() {
       >
         ENTRAR
       </button>
+      <div className="mt-10"/>
     </div>
   );
 }

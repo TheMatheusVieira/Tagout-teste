@@ -115,11 +115,12 @@ export default function ModalEditUser({ onClose }: ModalProps) {
           </div>
         </div>
 
-    <div className="flex flex-row gap-4 items-center w-full      ">
-        <div className="mt-4 w-[40%] flex justify-center border border-red rounded-md gap-2 m-1 text-red hover:text-red-900">
+    <div className="flex flex-row gap-4 items-center w-full justify-between ">
+        <div className="mt-4 w-[40%] flex justify-center border border-red rounded-sm gap-2 m-1 text-red hover:text-red-900">
 <button type="button" className=" font-semibold text-lg hover:cursor-pointer">Excluir ordem</button>
       </div>
 
+<div className="flex gap-3">
       {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
 <button onClick={onClose}
           className="mt-3 text-red font-semibold hover:text-red-900 hover:cursor-pointer"
@@ -129,6 +130,7 @@ export default function ModalEditUser({ onClose }: ModalProps) {
 <button onClick={onClose}
           className="mt-3 text-red font-semibold hover:text-red-900 hover:cursor-pointer"
         >SALVAR</button>
+</div>
 </div>
       </div>
     </div>

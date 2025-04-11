@@ -6,9 +6,15 @@ import { Header } from "@/components/ui/header";
 import Sidebar from "@/components/ui/sidebar";
 import { Footer } from "@/components/useFooter";
 import { PaginationComponent } from "@/components/usePagination";
+import ModalHistTask from "@/components/ModalHist";
 
 export default function HistoricoAtividades() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+
+  const [userImage, setUserImage] = useState<string | null>(null);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -19,7 +25,7 @@ export default function HistoricoAtividades() {
       <div>
         <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
 
-        <Sidebar isOpen={isSidebarOpen} />
+        <Sidebar isOpen={isSidebarOpen} userImage={userImage} />
 
         <div className="flex flex-col">
           <div className="flex flex-row m-5">
@@ -56,6 +62,11 @@ export default function HistoricoAtividades() {
           <Footer />
         </div>
       </div>
+      {isModalOpen && (
+              <div className="fixed inset-0 z-[9999] flex items-center justify-center">
+                <ModalHistTask onClose={() => setIsModalOpen(false)} />
+              </div>
+            )}
     </main>
   );
 }

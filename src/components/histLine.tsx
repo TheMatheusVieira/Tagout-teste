@@ -6,15 +6,11 @@ import ModalHistTask from "./ModalHist";
 import { useState } from "react";
 
 export function HistLine() {
-  
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
-<div   
-    className="gap-5 ml-5"
-    onClick={() => setIsModalOpen(true)}
-    >
+    <div className="gap-5 ml-5" onClick={() => setIsModalOpen(true)}>
       <div className="flex flex-row">
         <div className="w-18 h-16 overflow-hidden rounded-md mr-5 mt-2.5">
           <Image
@@ -50,10 +46,10 @@ export function HistLine() {
         </div>
       </div>
       {isModalOpen && (
-              <div className="fixed inset-0 z-[9999] flex items-center justify-center">
-                <ModalHistTask onClose={() => setIsModalOpen(false)} />
-              </div>
-            )}
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center">
+          <ModalHistTask onClose={() => setIsModalOpen(false)} />
+        </div>
+      )}
     </div>
   );
 }

@@ -14,12 +14,14 @@ export default function CadastrarEmpresa() {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const [userImage, setUserImage] = useState<string | null>(null);
+
   return (
     <main className="flex flex-col h-screen">
       <div className="flex-1 flex flex-col">
         <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
 
-        <Sidebar isOpen={isSidebarOpen} />
+        <Sidebar isOpen={isSidebarOpen} userImage={userImage} />
 
         <div className="flex-1 flex flex-row w-full justify-center items-center">
           <div className="flex flex-col m-5">

@@ -18,11 +18,14 @@ export default function DashboardEnterprise() {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  const [userImage, setUserImage] = useState<string | null>(null);
+
   return (
     <main className="flex flex-col h-screen">
       <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
 
-      <Sidebar isOpen={isSidebarOpen} />
+      <Sidebar isOpen={isSidebarOpen} userImage={userImage} />
 
       <div className="flex flex-col w-full">
         <span className="text-4xl text-textblack text ml-20 font-bold m-8">

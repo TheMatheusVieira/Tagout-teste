@@ -16,12 +16,16 @@ export default function CadastrarSetor() {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  const [userImage, setUserImage] = useState<string | null>(null);
+
   return (
     <main className="flex flex-col h-screen">
       <div>
         <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
 
-        <Sidebar isOpen={isSidebarOpen} />
+        <Sidebar isOpen={isSidebarOpen} userImage={userImage} />
+
         <div className="flex flex-row w-full justify-center items-center">
           <div className="flex flex-col m-5 items-center">
             <Image src={logo} alt="logo TAGOUT" className="w-80 mt-15 mb-8" />

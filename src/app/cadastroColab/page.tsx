@@ -14,12 +14,14 @@ export default function CadastrarAtivo() {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const [userImage, setUserImage] = useState<string | null>(null);
+
   return (
     <main className="flex flex-col h-screen">
       <div>
         <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
 
-        <Sidebar isOpen={isSidebarOpen} />
+        <Sidebar isOpen={isSidebarOpen} userImage={userImage} />
 
         <div className="flex flex-col w-full justify-center items-center mt-5">
           <h1 className="flex justify-center text-3xl text-red text font-medium mb-2 mt-5">

@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, Trash2 } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect } from "react";
 import { IndicatorView } from "./usePaginationB";
 
@@ -19,97 +19,70 @@ export default function ModalHistTask({ onClose }: ModalProps) {
   }, [onClose]);
 
   return (
-<div className="fixed inset-0 flex items-center justify-center bg-black/50">
-<div className="bg-white p-6 rounded-sm shadow-lg w-96 relative">
+    <div className="fixed inset-0 flex items-center justify-center bg-black/50">
+      <div className="bg-white rounded-sm shadow-lg w-96 relative">
+        <div className="p-6">
+          <div className="flex flex-row justify-between">
+            <h2 className="text-xl font-bold text-left">Histórico</h2>
+            <span className="text-xs">22 Jan 2025</span>
+          </div>
 
-<h2 className="text-xl font-bold text-left">Colaboradores conectados</h2>
-<h1>Painel elétrico X</h1>
-  {/* Botão de fechar modal */}
+          <div className="top-10 flex flex-row justify-between font-semibold text-red text-sm">
+            <h1>GERAR RELATÓRIO</h1>
+            {/* Botão de fechar modal */}
 
-<button
-type="button"
-    onClick={onClose}
-    className="absolute top-2 right-2 text-gray-500"
-  >
-    &times;
-  </button>
+            {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
+            <button
+              onClick={onClose}
+              className="hover:cursor-pointer hover:text-red-900"
+            >
+              SAIR
+            </button>
+          </div>
+        </div>
 
-  <div className="mt-2 space-y-3">
+        <div className="flex flex-row justify-between ml-0.5 mr-0.5">
+          <div className="flex flex-col gap-1 w-full">
+            <div className="border p-2 rounded-sm">
+              <div className="flex flex-row justify-between w-full text-sm items-center gap-2">
+                <h1 className="block text-sm font-medium text-textblack">
+                  Colaborador 1
+                </h1>
+                <span>20/01/2021</span>
+              </div>
 
-<div className="w-[30%] h-0.5 bg-red"/>
-  <div className="m-2">
-              <h1 className="block text-sm font-medium text-gray-700">Líder</h1>
-              <div className="flex flex-col sm:flex-row">
-                <span className="w-full">José Santos</span>
+              <div className="flex flex-row justify-between w-full text-sm items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-black rounded-full" />
+                <span className="w-full">O líder iniciou a atividade</span>
+                <span>15:01</span>
               </div>
             </div>
 
-<div className="ml-15 w-[30%] h-0.5 bg-red"/>
-
-<div className="flex flex-row justify-between m-2">
-
-  <div className="flex flex-col gap-4">
-    <div>
-              <h1 className="block text-sm font-medium text-gray-700">Colaborador</h1>
-              <div className="flex flex-col sm:flex-row">
-                <span className="w-full">José Santos</span>
+            <div className="border p-2 rounded-sm">
+              <div className="flex flex-row justify-between w-full text-sm items-center gap-2">
+                <h1 className="block text-sm font-medium text-textblack">
+                  Colaborador 2
+                </h1>
+                <span>20/01/2021</span>
               </div>
-    </div>
 
-    <div>
-              <h1 className="block text-sm font-medium text-gray-700">Colaborador</h1>
-              <div className="flex flex-col sm:flex-row">
-                <span className="w-full">José Santos</span>
-              </div>
-    </div>            
-    
-            </div>
-
-  <div className="flex flex-col gap-4">
-    <div>
-              <h1 className="block text-sm font-medium text-gray-700">Atuação</h1>
-              <div className="flex flex-col sm:flex-row">
-                <span className="w-full">Mecânica</span>
-                  </div>
-    </div>
-
-    <div>
-              <h1 className="block text-sm font-medium text-gray-700">Atuação</h1>
-              <div className="flex flex-col sm:flex-row">
-                <span className="w-full">Mecânica</span>
+              <div className="flex flex-row justify-between w-full text-sm items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-black rounded-full" />
+                <span className="w-full">Pausou a atividade</span>
+                <span>15:01</span>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="m-4 items-center">
+          <div className="mt-5 flex text-red items-center">
+            <ArrowLeft />
+            <IndicatorView />
+            <ArrowRight />
+          </div>
+        </div>
+      </div>
     </div>
-
-
-            <div className="flex flex-col gap-4">
-    <div>
-              <h1 className="block text-sm font-medium text-gray-700">Status</h1>
-              <div className="flex flex-col sm:flex-row">
-                <span className="w-full">Atuando</span>
-              </div>
-    </div>
-
-    <div>
-              <h1 className="block text-sm font-medium text-gray-700">Status</h1>
-              <div className="flex flex-col sm:flex-row">
-                <span className="w-full">Atuando</span>
-              </div>
-    </div>
-
-              </div>
-            </div>
-
-
-  
-  </div>
-
-<div className="mt-5 flex text-red items-center">
-  <ArrowLeft/>
-<IndicatorView/>
-<ArrowRight/>
-</div>
-</div>
-</div>
   );
 }

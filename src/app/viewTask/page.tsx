@@ -19,7 +19,7 @@ export default function viewTask() {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
-  
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (

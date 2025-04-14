@@ -14,12 +14,14 @@ export default function OrdensAndamento() {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const [userImage, setUserImage] = useState<string | null>(null);
+
   return (
     <main className="flex flex-col h-screen">
       <div>
         <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
 
-        <Sidebar isOpen={isSidebarOpen} />
+        <Sidebar isOpen={isSidebarOpen} userImage={userImage} />
 
         <div className="flex flex-col">
           <div className="flex flex-row m-5">

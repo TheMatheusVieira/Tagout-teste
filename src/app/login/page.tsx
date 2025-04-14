@@ -25,7 +25,7 @@ export default function Login() {
       >
         ENTRAR
       </button>
-      <div className="mt-10"/>
+      <div className="mt-10" />
     </div>
   );
 }

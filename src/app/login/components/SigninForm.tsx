@@ -50,7 +50,7 @@ export default function SigninForm( props: PropsWithChildren )
     return (
 
 
-        <form action={formAction} className="w-1/2 flex flex-col gap-9 ">
+        <form action={formAction} className="w-1/2 flex justify-center items-center flex-col gap-5">
             {props.children}
         </form >
 

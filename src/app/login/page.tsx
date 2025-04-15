@@ -1,6 +1,7 @@
 import Image from "next/image";
 import logo from "../../assets/logo.svg";
 import { InputLoginEmail, InputLoginSenha } from "@/components/useInput";
+import SigninForm from "./components/SigninForm";
 
 export default function Login() {
   return (
@@ -14,17 +15,21 @@ export default function Login() {
       <div className="z-10">
         <h1 className="m-2 text-2xl font-bold text-textblack">LOGIN</h1>
       </div>
+      <SigninForm>
       <InputLoginEmail />
       <InputLoginSenha />
-      <a href="/" className="text-red text-sm z-10">
-        Esqueceu a senha?
-      </a>
+     
       <button
         type="button"
-        className="bg-red text-white font-semibold text-xl w-40 h-10 rounded-md z-10"
+        className="bg-red hover:bg-red-900 hover:cursor-pointer text-white font-semibold text-xl w-40 h-10 rounded-md z-10"
       >
         ENTRAR
       </button>
+      </SigninForm>
+
+      <a href="/" className="text-red text-sm z-10">
+        Esqueceu a senha?
+      </a>
       <div className="mt-10" />
     </div>
   );

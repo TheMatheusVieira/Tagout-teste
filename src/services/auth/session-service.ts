@@ -1,5 +1,5 @@
-import { CompanyType } from '@/types/company-type';
-import { getIronSession, SessionOptions } from 'iron-session';
+import type { CompanyType } from '@/types/company-type';
+import { getIronSession, type SessionOptions } from 'iron-session';
 import { cookies } from 'next/headers';
 export type UserSessionData =
     {
@@ -18,6 +18,7 @@ export const defaultSession: UserSessionData = {
 }
 
 export const sessionOptions: SessionOptions = {
+    // biome-ignore lint/style/noNonNullAssertion: <explanation>
     password: process.env.SECRET_KEY!,
     cookieName: "session",
     cookieOptions: {
@@ -39,6 +40,7 @@ export const sessionService = {
         let cookieValue = session.token;
         if ( token )
         {
+            // biome-ignore lint/style/noNonNullAssertion: <explanation>
             const authCookieSplit = token!.split( ';' )
             cookieValue = ( authCookieSplit[0].split( '=' )[1] ).trim()
         }

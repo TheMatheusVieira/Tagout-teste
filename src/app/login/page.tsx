@@ -27,7 +27,7 @@ export default function Login() {
       </button>
       </SigninForm>
 
-      <a href="/" className="text-red text-sm z-10">
+      <a href="/resetSenha" className="text-red text-sm z-10">
         Esqueceu a senha?
       </a>
       <div className="mt-10" />

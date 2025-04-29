@@ -37,6 +37,44 @@ export function InputLoginSenha() {
   }
   
 
+  //RECUPERAÇÃO DE SENHA
+  export function InputRecuEmail() {
+    return (
+      <div className="grid w-full max-w-[30%] items-center gap-1.5">
+        <Label htmlFor="email">E-mail</Label>
+        <Input type="email" id="email" className="border-red bg-bbrose" />
+      </div>
+    )
+  }
+
+  export function  InputRecuCPF() {
+    return (
+      <div className="grid w-full max-w-[30%] items-center gap-1.5">
+        <Label htmlFor="senha">CPF</Label>
+        <Input type="string" id="cpf" className="border-red bg-bbrose" />
+      </div>
+    )
+  }
+
+  export function InputRecuNovaSenha() {
+    return (
+      <div className="grid w-full max-w-[30%] items-center gap-1.5">
+        <Label htmlFor="email">Nova senha</Label>
+        <Input type="password" id="nsenha" className="border-red bg-bbrose" />
+      </div>
+    )
+  }
+
+  export function  InputRecuConfirmSenha() {
+    return (
+      <div className="grid w-full max-w-[30%] items-center gap-1.5">
+        <Label htmlFor="senha">Confirmar senha</Label>
+        <Input type="password" id="cnsenha" className="border-red bg-bbrose" />
+      </div>
+    )
+  }
+
+
 //PERFIL DO USUÁRIO
 export function InputPerfilEmail() {
   return (
